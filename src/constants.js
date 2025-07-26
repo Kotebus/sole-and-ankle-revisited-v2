@@ -23,7 +23,7 @@ const BREAKPOINTS = {
   desktop: 81.25,
 }
 
-const QUERIES = {
+export const QUERIES = {
   'mobile': `(max-width: ${BREAKPOINTS.mobile}rem)`,
   'tablet': `(max-width: ${BREAKPOINTS.tablet}rem)`,
   'desktop': `(max-width: ${BREAKPOINTS.desktop}rem)`,
