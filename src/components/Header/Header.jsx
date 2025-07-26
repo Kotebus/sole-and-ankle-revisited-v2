@@ -39,7 +39,7 @@ const Header = () => {
                     <UnstyledButton>
                         <Icon id="search" strokeWidth={2}/>
                     </UnstyledButton>
-                    <UnstyledButton>
+                    <UnstyledButton onClick={() => setShowMobileMenu(!showMobileMenu)}>
                         <Icon id="menu" strokeWidth={2}/>
                     </UnstyledButton>
                 </MobileButtons>
@@ -61,7 +61,7 @@ const MainHeader = styled.div`
     border-bottom: 1px solid ${COLORS.gray[300]};
     justify-content: space-between;
 
-    @media (${QUERIES.tablet}) {
+    @media (${QUERIES.tabletAndSmaller}) {
         border-top: 4px solid ${COLORS.gray[900]};
     }
 `;
@@ -71,7 +71,7 @@ const Nav = styled.nav`
     gap: 48px;
     margin: 0 48px;
 
-    @media (${QUERIES.tablet}) { 
+    @media (${QUERIES.tabletAndSmaller}) { 
         display: none;
     }
 `;
@@ -79,7 +79,7 @@ const Nav = styled.nav`
 const MobileButtons = styled.div`
     display: none;
 
-    @media (${QUERIES.tablet}) {
+    @media (${QUERIES.tabletAndSmaller}) {
         display: flex;
         gap: 32px;
     }
