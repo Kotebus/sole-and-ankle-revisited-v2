@@ -7,6 +7,7 @@ import SuperHeader from '../SuperHeader';
 import MobileMenu from '../MobileMenu';
 import Icon from "../Icon/index.js";
 import UnstyledButton from "../UnstyledButton/UnstyledButton.js";
+import VisuallyHidden from "../VisuallyHidden/index.js";
 
 const Header = () => {
     const [showMobileMenu, setShowMobileMenu] = React.useState(false);
@@ -23,26 +24,29 @@ const Header = () => {
                 <Side>
                     <Logo/>
                 </Side>
-                <Nav>
+                <DesktopNav>
                     <NavLink href="/sale">Sale</NavLink>
                     <NavLink href="/new">New&nbsp;Releases</NavLink>
                     <NavLink href="/men">Men</NavLink>
                     <NavLink href="/women">Women</NavLink>
                     <NavLink href="/kids">Kids</NavLink>
                     <NavLink href="/collections">Collections</NavLink>
-                </Nav>
+                </DesktopNav>
                 <Side/>
-                <MobileButtons>
+                <MobileActions>
                     <UnstyledButton>
                         <Icon id="shopping-bag" strokeWidth={2}/>
+                        <VisuallyHidden>Open card</VisuallyHidden>
                     </UnstyledButton>
                     <UnstyledButton>
                         <Icon id="search" strokeWidth={2}/>
+                        <VisuallyHidden>Open search</VisuallyHidden>
                     </UnstyledButton>
                     <UnstyledButton onClick={() => setShowMobileMenu(!showMobileMenu)}>
                         <Icon id="menu" strokeWidth={2}/>
+                        <VisuallyHidden>Open menu</VisuallyHidden>
                     </UnstyledButton>
-                </MobileButtons>
+                </MobileActions>
             </MainHeader>
 
             <MobileMenu
@@ -63,10 +67,16 @@ const MainHeader = styled.div`
 
     @media (${QUERIES.tabletAndSmaller}) {
         border-top: 4px solid ${COLORS.gray[900]};
+        align-items: center;
+    }
+    
+    @media (${QUERIES.mobile}) {
+        padding-right: 16px;
+        padding-left: 16px;
     }
 `;
 
-const Nav = styled.nav`
+const DesktopNav = styled.nav`
     display: flex;
     gap: 48px;
     margin: 0 48px;
@@ -76,7 +86,7 @@ const Nav = styled.nav`
     }
 `;
 
-const MobileButtons = styled.div`
+const MobileActions = styled.div`
     display: none;
 
     @media (${QUERIES.tabletAndSmaller}) {
@@ -87,7 +97,6 @@ const MobileButtons = styled.div`
     @media (${QUERIES.mobile}) {
         gap: 16px;
     }
-
 `;
 
 const Side = styled.div`
